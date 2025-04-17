@@ -7,18 +7,17 @@ $command = $argv[1] ?? null;
 
 switch ($command) {
     case "add":
-        $name = $argv[2] ?? null;
-        $status = $argv[3] ?? null;
+        $description = $argv[2] ?? null;
 
-        if (!isset($name, $status)) {
-            echo "Usage : php todo.php add \"task name\" \"task status\" \n";
+        if (!isset($description)) {
+            echo "Usage : php todo.php add \"task description\" \n";
             break;
         }
-        $taskManager->addTask($name, $status);
+        $taskManager->addTask($description,);
         break;
 
     case 'list':
-        $taskManager->listTasks();
+        // $taskManager->listTasks();
         break;
 
     case 'update':

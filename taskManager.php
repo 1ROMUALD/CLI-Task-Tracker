@@ -38,16 +38,18 @@ class TaskManager
      * @param  string $taskStatus
      * @return void
      */
-    public function addTask($taskName, $taskStatus)
+    public function addTask($description)
     {
+        $status = 'todo';
         $tasks = $this->loadTasks();
+        $id = count($tasks) + 1;
         $tasks[] = new Task(
-            count($tasks) + 1,
-            $taskName,
-            $taskStatus
+            $id,
+            $description,
+            $status
         );
         $this->saveTasks($tasks);
-        echo "Task added : \"$taskName\"\n";
+        echo "Task added successfully (ID : $id) \n";
     }
 
     /**
@@ -125,16 +127,16 @@ class TaskManager
      * @param  string $taskStatus Optionnal
      * @return void
      */
-    public function listTasks($taskStatus = null)
-    {
-        $tasks = $this->loadTasks();
-        if (empty($tasks)) {
-            echo "No tasks found.\n";
-            return;
-        }
-        foreach ($tasks as $task) {
-            $formatedTask = new Task($task['taskID'], $task['taskName'], $task['status']);
-            echo "\"Task\" " . $formatedTask->getTaskID() . " \"Name\" " . $formatedTask->getTaskName() . " \"Status\" " . $formatedTask->getStatus() . "\n";
-        }
-    }
+    // public function listTasks($taskStatus = null)
+    // {
+    //     $tasks = $this->loadTasks();
+    //     if (empty($tasks)) {
+    //         echo "No tasks found.\n";
+    //         return;
+    //     }
+    //     foreach ($tasks as $task) {
+    //         $formatedTask = new Task($task['taskID'], $task['taskName'], $task['status']);
+    //         echo "\"Task\" " . $formatedTask->getTaskID() . " \"Name\" " . $formatedTask->getTaskName() . " \"Status\" " . $formatedTask->getStatus() . "\n";
+    //     }
+    // }
 }
