@@ -37,6 +37,7 @@ switch ($command) {
         $id = $argv[2] ?? null;
         if (!isset($id)) {
             echo "Provide a valid <task id>";
+            echo "Usage php task-cli.php mark-in-progress <task id>";
             break;
         }
         $taskManager->updateTask((int) $id, null, "in-progress");
@@ -46,15 +47,16 @@ switch ($command) {
         $id = $argv[2] ?? null;
         if (!isset($id)) {
             echo "Provide a valid <task id>";
+            echo "Usage php task-cli.php mark-done <task id>";
             break;
         }
-        $taskManager->updateTask((int) $id, null,"done");
+        $taskManager->updateTask((int) $id, null, "done");
         break;
 
     case 'delete':
         $id = $argv[2] ?? null;
         if (!isset($id)) {
-            echo "Usage php todo.php delete <task id>";
+            echo "Usage php task-cli.php delete <task id>";
             break;
         }
         $taskManager->deleteTask((int) $id);
@@ -62,6 +64,7 @@ switch ($command) {
 
     //need to change the update usage in here
     default:
+        echo "Invalid command \n";
         echo "Usage:\n";
         echo "  php todo.php add \"task name\" \"task status\" \n";
         echo "  php todo.php list\n";

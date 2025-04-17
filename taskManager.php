@@ -31,7 +31,12 @@ class TaskManager
         return $tasks;
     }
 
-    /* Save tasks to the JSON file */
+    /**
+     * Save tasks to the JSON file
+     *
+     * @param  mixed $tasks
+     * @return void
+     */
     private function saveTasks($tasks)
     {
         file_put_contents($this->tasksFile, json_encode($tasks, JSON_PRETTY_PRINT));
@@ -41,8 +46,7 @@ class TaskManager
     /**
      * Logic for adding a task
      *
-     * @param  string $taskName
-     * @param  string $taskStatus
+     * @param  string $description
      * @return void
      */
     public function addTask($description)
@@ -117,17 +121,6 @@ class TaskManager
         echo "Taks $taskID deleted successfully. \n";
     }
 
-    /**Logic for marking task in progress */
-    public function markInProgress($taskID)
-    {
-        $status = "In progress";
-    }
-
-    /**Logic for marking task as done */
-    public function markDone($taskID)
-    {
-        $status = "Done";
-    }
 
     /**
      * Logic for listing tasks
@@ -143,6 +136,7 @@ class TaskManager
             echo "No tasks found.\n";
             return;
         }
+
         foreach ($tasks as $task) {
 
             $formatedTask = new Task($task['id'], $task['description'], $task['status'], $task['updatedAt']);
@@ -151,16 +145,8 @@ class TaskManager
                 echo "\"Id\" " . $formatedTask->getId() . " \"Name\" " . $formatedTask->getDescription() . " \"Status\" " . $formatedTask->getStatus() . " \"created at\" " . $formatedTask->getCreatedAt() . " \"updated at\" " . $formatedTask->getUpdatedAt() . "\n";
                 // print_r($formatedTask);
             }
-
-            //Same and simplified
-            // if (
-            //     !isset($taskStatus) ||
-            //     trim($taskStatus) === "" ||
-            //     $task['status'] == $taskStatus
-            // ) {
-            //     // display
-            // } 
         }
+
         if (!$display && isset($taskStatus)) {
             echo "Not task with status $taskStatus found";
         } elseif (!isset($taskStatus) && !$display) {
