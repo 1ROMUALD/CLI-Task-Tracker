@@ -2,62 +2,68 @@
 
 class Task
 {
-    public $taskID;
-    public $taskName;
-    public $status;
-    public $created_at;
+    public $id; //A unique identifier for the task
+    public $description; // A short description of the task
+    public $status; // The status of the task ['todo', 'in-progress', 'done']
+    public $createdAt; // The date and time when the task was created
+    public $updatedAt; // The date and time when the task was last updated
 
-    public function __construct($taskID, $taskName, $status)
+    public function __construct($id, $description, $status, $updatedAt = null)
     {
-        $this->taskID = $taskID;
-        $this->taskName = $taskName;
+        $this->id = $id;
+        $this->description = $description;
         $this->status = $status;
-        $this->created_at = date('Y-m-d H:i:s');
+        $this->createdAt = date('Y-m-d H:i:s');
+        $this->updatedAt = $updatedAt;
     }
 
     /**
-     * Get the value of taskID
-     */ 
-    public function getTaskID()
+     * Get the value of id
+     */
+    public function getId()
     {
-        return $this->taskID;
+        return $this->id;
     }
 
     /**
-     * Set the value of taskID
+     * Set the value of id
      *
      * @return  self
-     */ 
-    public function setTaskID($taskID)
+     */
+    public function setId($id)
     {
-        $this->taskID = $taskID;
+        $this->id = $id;
 
         return $this;
     }
 
+
+
     /**
-     * Get the value of taskName
-     */ 
-    public function getTaskName()
+     * Get the value of description
+     */
+    public function getDescription()
     {
-        return $this->taskName;
+        return $this->description;
     }
 
     /**
-     * Set the value of taskName
+     * Set the value of description
      *
      * @return  self
-     */ 
-    public function setTaskName($taskName)
+     */
+    public function setDescription($description)
     {
-        $this->taskName = $taskName;
+        $this->description = $description;
 
         return $this;
     }
+
+
 
     /**
      * Get the value of status
-     */ 
+     */
     public function getStatus()
     {
         return $this->status;
@@ -67,7 +73,7 @@ class Task
      * Set the value of status
      *
      * @return  self
-     */ 
+     */
     public function setStatus($status)
     {
         $this->status = $status;
@@ -75,22 +81,44 @@ class Task
         return $this;
     }
 
+
+
     /**
-     * Get the value of created_at
-     */ 
-    public function getCreated_at()
+     * Get the value of createdAt
+     */
+    public function getCreatedAt()
     {
-        return $this->created_at;
+        return $this->createdAt;
     }
 
     /**
-     * Set the value of created_at
+     * Set the value of createdAt
      *
      * @return  self
-     */ 
-    public function setCreated_at($created_at)
+     */
+    public function setCreatedAt($createdAt)
     {
-        $this->created_at = $created_at;
+        $this->createdAt = $createdAt;
+
+        return $this;
+    }
+
+    /**
+     * Get the value of updatedAt
+     */
+    public function getUpdatedAt()
+    {
+        return $this->updatedAt;
+    }
+
+    /**
+     * Set the value of updatedAt
+     *
+     * @return  self
+     */
+    public function setUpdatedAt($updatedAt)
+    {
+        $this->updatedAt = $updatedAt;
 
         return $this;
     }
