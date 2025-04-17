@@ -3,7 +3,7 @@ require_once 'task.php';
 
 class TaskManager
 {
-    private $tasksFile = 'tasks.json';
+    private $tasksFile = '../todo-cli/data/tasks.json';
 
     public function __construct()
     {
