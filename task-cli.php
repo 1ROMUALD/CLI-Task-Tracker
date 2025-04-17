@@ -10,31 +10,45 @@ switch ($command) {
         $description = $argv[2] ?? null;
 
         if (!isset($description)) {
-            echo "Usage : php todo.php add \"task description\" \n";
+            echo "Usage : php task-cli.php add \"task description\" \n";
             break;
         }
-        $taskManager->addTask($description,);
+        $taskManager->addTask($description);
         break;
 
     case 'list':
-        // $taskManager->listTasks();
+        $status = $argv[2] ?? null;
+        $taskManager->listTasks($status);
         break;
 
     case 'update':
         $id = $argv[2] ?? null;
-        $newName = $argv[3] ?? null;
-        $newStatus = $argv[4] ?? null;
-        $usage = "Usage : php todo.php update <task id> \"new name\" \"new status\"(optionnal) \n";
-        if (!isset($id)) {
-            echo "Give a valid <task id> \n";
-            echo $usage;
-            break;
-        } else if (!isset($newName) && !isset($newStatus)) {
-            echo "You must provide either the task name or status or both \n";
+        $newDescription = $argv[3] ?? null;
+        $usage = "Usage : php task-cli.php update <task id> \"new description\" \n";
+        if (!isset($id) || !isset($newDescription)) {
+            echo "Provide a valid <task id> and the new task description \n";
             echo $usage;
             break;
         }
-        $taskManager->updateTask((int) $id, $newName, $newStatus);
+        $taskManager->updateTask((int) $id, $newDescription);
+        break;
+
+    case 'mark-in-progress':
+        $id = $argv[2] ?? null;
+        if (!isset($id)) {
+            echo "Provide a valid <task id>";
+            break;
+        }
+        $taskManager->updateTask((int) $id, null, "in-progress");
+        break;
+
+    case 'mark-done':
+        $id = $argv[2] ?? null;
+        if (!isset($id)) {
+            echo "Provide a valid <task id>";
+            break;
+        }
+        $taskManager->updateTask((int) $id, null,"done");
         break;
 
     case 'delete':
