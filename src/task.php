@@ -8,11 +8,11 @@ class Task
     public $createdAt; // The date and time when the task was created
     public $updatedAt; // The date and time when the task was last updated
 
-    public function __construct($id, $description, $status, $updatedAt = null)
+    public function __construct($id, $description, $updatedAt = null)
     {
         $this->id = $id;
         $this->description = $description;
-        $this->status = $status;
+        $this->status = "todo";
         $this->createdAt = date('Y-m-d H:i:s');
         $this->updatedAt = $updatedAt;
     }

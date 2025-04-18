@@ -51,13 +51,11 @@ class TaskManager
      */
     public function addTask($description)
     {
-        $status = 'todo';
         $tasks = $this->loadTasks();
         $id = count($tasks) + 1;
         $tasks[] = new Task(
             $id,
             $description,
-            $status
         );
         $this->saveTasks($tasks);
         echo "Task added successfully (ID : $id) \n";
