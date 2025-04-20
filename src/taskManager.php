@@ -3,17 +3,19 @@ require_once 'task.php';
 
 class TaskManager
 {
-    private $tasksFile = '../todo-cli/data/tasks.json';
+    private $tasksFile;
 
-    public function __construct()
+    public function __construct($tasksFile = __DIR__.'/../data/tasks.json')
     {
+        $this->tasksFile = $tasksFile;
         if (!file_exists($this->tasksFile)) {
             file_put_contents($this->tasksFile, []);
         }
     }
 
     /*Load tasks from the JSON file */
-    private function loadTasks()
+    //We made this public because we want to use this methods in the test file
+    public function loadTasks()
     {
         // if (!file_exists($this->tasksFile)) {
         //     echo "file doesn't exist \n";
