@@ -7,5 +7,7 @@ require_once 'tests/unit/taskManagerTest.php';
 
 echo "\n *** Running Integration Tests *** \n";
 require_once 'tests/integration/addTaskTest.php';
+// require_once 'tests/integration/listTaskTest.php';
+require_once 'tests/integration/updateTaskTest.php';
 
 echo "\nAll tests completed. \n";

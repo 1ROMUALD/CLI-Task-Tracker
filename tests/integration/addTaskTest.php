@@ -1,9 +1,14 @@
 <?php
+// ADDING TASK INTEGRATION TEST
 
-$output = shell_exec('php ../todo-cli/task-cli.php add "Test CLI Task"');
+/**
+ * Run the command to create a new task in the terminal and verify if the output is as espected. (successful task creation message)
+ */
+
+$output = shell_exec('php ../todo-cli/task-cli.php add "Test CLI Task creation"');
 
 if (strpos($output, "Task added successfully (ID : 1)") !== false) {
-    echo "✅ AddTaskTest passed.\n";
+    echo "✅ add task test passed.\n";
 } else {
-    echo "❌ AddTaskTest failed. Output: $output\n";
+    echo "❌ add task test failed. Output: $output\n";
 }
