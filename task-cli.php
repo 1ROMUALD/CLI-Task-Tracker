@@ -62,7 +62,6 @@ switch ($command) {
         $taskManager->deleteTask((int) $id);
         break;
 
-    //need to change the update usage in here
     default:
         echo "Invalid command \n";
         echo "Usage:\n";

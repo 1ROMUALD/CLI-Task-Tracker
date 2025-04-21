@@ -17,11 +17,6 @@ class TaskManager
     //We made this public because we want to use this methods in the test file
     public function loadTasks()
     {
-        // if (!file_exists($this->tasksFile)) {
-        //     echo "file doesn't exist \n";
-        //     return [];
-        // }
-
         $content = file_get_contents($this->tasksFile);
 
         $tasks = json_decode($content, true);
@@ -83,7 +78,6 @@ class TaskManager
                 $newTaskStatus != " " && isset($newTaskStatus) ? $task['status'] = $newTaskStatus : null;
                 $task['updatedAt'] = date('Y-m-d H:i:s');
                 $found = true;
-                // print_r($task);
                 break;
             }
         }
@@ -143,7 +137,6 @@ class TaskManager
             if (($taskStatus == " " || !isset($taskStatus)) || $task['status'] == $taskStatus) {
                 $display = true;
                 echo "\"Id\" " . $formatedTask->getId() . " \"Name\" " . $formatedTask->getDescription() . " \"Status\" " . $formatedTask->getStatus() . " \"created at\" " . $formatedTask->getCreatedAt() . " \"updated at\" " . $formatedTask->getUpdatedAt() . "\n";
-                // print_r($formatedTask);
             }
         }
 
