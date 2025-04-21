@@ -83,9 +83,9 @@ You just need to clone and get into the repo
 
 For any details or further explanations i'm available here
 
-**[MAIL]** <tcheundjuiromualde@gmail.com>
+**MAIL** <tcheundjuiromualde@gmail.com>
 
-My **[LINKEDIN](www.linkedin.com/in/tcheundjui)**
+My **[LINKEDIN](https://www.linkedin.com/in/tcheundjui)**
 
 
 ## Aknowledgments
