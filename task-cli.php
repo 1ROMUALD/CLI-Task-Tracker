@@ -66,9 +66,11 @@ switch ($command) {
     default:
         echo "Invalid command \n";
         echo "Usage:\n";
-        echo "  php todo.php add \"task name\" \"task status\" \n";
-        echo "  php todo.php list\n";
-        echo "  php todo.php update <id> \"new description\"\n";
-        echo "  php todo.php delete <id>\n";
+        echo "  php task-cli.php add \"task description\" ( create de new tas )\n";
+        echo "  php task-cli.php list (List all task : you can add the status to only display the tasks with the provided status. ex: php ... list done)\n";
+        echo "  php task-cli.php update <id> \"new description\" ( update a task description)\n";
+        echo "  php task-cli.php mark-in-progress <id> ( mark a task as in progress )\n";
+        echo "  php task-cli.php mark-done <task id> ( mark a task as done )\n";
+        echo "  php task-cli.php delete <task id> (delete a task)\n";
         break;
 }
