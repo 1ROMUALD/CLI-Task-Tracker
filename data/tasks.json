@@ -2,8 +2,8 @@
     {
         "id": 1,
         "description": "Test CLI Task update",
-        "status": "todo",
-        "createdAt": "2025-04-21 02:45:28",
-        "updatedAt": "2025-04-21 02:45:28"
+        "status": "in-progress",
+        "createdAt": "2025-04-21 04:08:14",
+        "updatedAt": "2025-04-21 04:08:14"
     }
 ]
