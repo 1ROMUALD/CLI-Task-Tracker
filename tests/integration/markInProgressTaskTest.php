@@ -8,7 +8,7 @@
 $output = shell_exec('php ../todo-cli/task-cli.php mark-in-progress 1');
 
 if (strpos($output, "Task 1 updated") !== false) {
-    echo "✅ mark task in progress passed.\n";
+    echo "✅ mark task status as \"in progress\" passed.\n";
 } else {
-    echo "❌ mark task in progress failed. Output: $output\n";
+    echo "❌ mark task status as \"in progress\" failed. Output: $output\n";
 }
