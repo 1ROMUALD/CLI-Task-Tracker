@@ -65,7 +65,7 @@ switch ($command) {
     default:
         echo "Invalid command \n";
         echo "Usage:\n";
-        echo "  php task-cli.php add \"task description\" ( create de new tas )\n";
+        echo "  php task-cli.php add \"task description\" ( create de new task )\n";
         echo "  php task-cli.php list (List all task : you can add the status to only display the tasks with the provided status. ex: php ... list done)\n";
         echo "  php task-cli.php update <id> \"new description\" ( update a task description)\n";
         echo "  php task-cli.php mark-in-progress <id> ( mark a task as in progress )\n";
